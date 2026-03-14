@@ -11,3 +11,4 @@ while True:
     except:
         print("\n¡¡¡Valor invalido, intenta de nuenvo!!!")
         
+    costo_total = precio * cantidad
