@@ -12,3 +12,7 @@ while True:
         print("\n¡¡¡Valor invalido, intenta de nuenvo!!!")
         
     costo_total = precio * cantidad
+    print(f"\nProducto: {nombre}")
+    print(f"Precio unitario: ${precio} | Cantidad: {cantidad} | Costo total: ${costo_total}")   
+    except NameError:
+    print ("")
