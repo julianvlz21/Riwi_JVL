@@ -26,10 +26,10 @@ def calcular_estadisticas(inventario):
         return
     # Suma todas las existencias disponibles en el almacén
     total_inventario = sum(cantidad['cantidad'] for cantidad in inventario)
-    print(f"Hay \033[1;32m{total_inventario}\033[0m productos en el inventario")
+    print(f"Hay \033[1;34m{total_inventario}\033[0m productos en el inventario")
 
     #Se realiza cálculos financieros básicos sobre el total de productos.
-    total_precio = sum(valor['precio'] * valor['cantidad'] for valor in inventario)
+    total_precio = sum((valor['precio'] * valor['cantidad']) for valor in inventario)
     print(f"El valor total de los productos: \033[1;32m${total_precio}\033[0m")
 
     producto_mas_caro = max(inventario, key=lambda p: float(p['precio']))
@@ -49,7 +49,7 @@ def bucar_producto (inventario, nombre_producto):
     if not inventario:
         return
     for producto in inventario:
-        if nombre_producto.lower() == producto['nombre'].lower():
+        if nombre_producto == producto['nombre']:
             print(f"\033[34m{producto['id']}.\033[0m Producto: {producto['nombre']} | Precio: {producto['precio']} | Cantidad: {producto['cantidad']}")
 
 def actualizar_productos (inventario):
@@ -75,13 +75,17 @@ def actualizar_productos (inventario):
                     cantidad = int(input("nuevo precio para el producto: "))
                     producto['cantidad'] = cantidad
                     
-                    return print(f"precio del producto \033[34m{producto['nombre']}\033[0m actualizado.") 
+                    return print(f"cantidad del producto \033[34m{producto['nombre']}\033[0m actualizada.") 
             
 def eliminar_producto (inventario, id):
     for producto in inventario:
         if producto.get("id") == id:
             inventario.remove(producto)
+            
             return print(f"producto \033[34m{producto['nombre']}\033[0m eliminado")
+        
+def guardar_csv (inventario):
+    pass
         
 # Funciones de validación para asegurar la integridad de los datos
 def si_vacio(valor):

@@ -57,7 +57,7 @@ while True:
         servicios_m1s3.calcular_estadisticas(inventario)
     
     elif opcion == "4":
-        nombre_producto = input("Escribe el nombre del producto: ")
+        nombre_producto = input("Escribe el nombre del producto: ").lower()
         servicios_m1s3.bucar_producto (inventario, nombre_producto)
 
     elif opcion == "5":
@@ -66,6 +66,9 @@ while True:
     elif opcion == "6":
         id = int(input("selecciona el id: "))
         servicios_m1s3.eliminar_producto(inventario, id)
+
+    elif opcion == "7":
+        pass
 
     elif opcion == "9":
         print("\033[1;32m================PROGRAMA FINALIZADO================\033[0m")
