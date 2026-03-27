@@ -12,7 +12,9 @@ while True:
     \033[1;34m 1.\033[0m Agregar producto
     \033[1;34m 2.\033[0m Mostrar inventario
     \033[1;34m 3.\033[0m Calcular estadísticas
-    \033[1;34m 5.\033[0m Actualizar precio o
+    \033[1;34m 4.\033[0m Buscar producto
+    \033[1;34m 5.\033[0m Actualizar precio o cantidad
+    \033[1;34m 6.\033[0m Eliminar producto
     \033[1;34m 9.\033[0m Salir
     """)    
     opcion = input("Selecciona una de las opciones: ")
@@ -53,9 +55,18 @@ while True:
 
     elif opcion == "3":
         servicios_m1s3.calcular_estadisticas(inventario)
+    
+    elif opcion == "4":
+        nombre_producto = input("Escribe el nombre del producto: ")
+        servicios_m1s3.bucar_producto (inventario, nombre_producto)
 
     elif opcion == "5":
         servicios_m1s3.actualizar_productos(inventario)
+
+    elif opcion == "6":
+        id = int(input("selecciona el id: "))
+        servicios_m1s3.eliminar_producto(inventario, id)
+
     elif opcion == "9":
         print("\033[1;32m================PROGRAMA FINALIZADO================\033[0m")
         break
